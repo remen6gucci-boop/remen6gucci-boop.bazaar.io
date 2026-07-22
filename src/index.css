@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #000000;
+    color: #f4f4f4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-display {
+    font-family: 'Archivo Narrow', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+  }
+
+  .chrome-text {
+    background: linear-gradient(180deg, #ffffff 0%, #d4d4d4 45%, #9a9a9a 60%, #ededed 80%, #b0b0b0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .chrome-bg {
+    background: linear-gradient(135deg, #ededed 0%, #b8b8b8 30%, #f5f5f5 55%, #9a9a9a 80%, #d8d8d8 100%);
+  }
+}
+
+/* Gallery columns scroll up — slow, seamless via duplicated content */
+@keyframes scroll-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-scroll-up { animation: scroll-up 70s linear infinite; }
+.animate-scroll-up-med { animation: scroll-up 82s linear infinite; }
+.animate-scroll-up-slow { animation: scroll-up 94s linear infinite; }
+
+.gallery-column:hover .animate-scroll-up,
+.gallery-column:hover .animate-scroll-up-med,
+.gallery-column:hover .animate-scroll-up-slow {
+  animation-play-state: paused;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in { animation: fade-in 1s ease both; }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 50s linear infinite; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+.animate-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
