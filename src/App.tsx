@@ -16,7 +16,7 @@ export default function App() {
       <Navbar />
 
       {/* Single marquee ticker */}
-      <div className="border-b border-white/[0.08] bg-white/[0.015] py-2.5">
+      <div className="border-b border-white/[0.08] bg-white/[0.015] py-2.5 overflow-hidden">
         <div className="animate-marquee flex w-max gap-6 whitespace-nowrap">
           {[...tickerWords, ...tickerWords].map((w, i) => (
             <span key={i} className="flex items-center gap-6 font-mono text-[11px] font-500 uppercase tracking-widest text-neutral-500">
